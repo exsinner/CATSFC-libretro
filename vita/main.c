@@ -17,7 +17,7 @@ int main()
     setup_callbacks();
     setup_audio();
 
-    pl_psp_init("cache0:/CATSFC-libretro-VITA/");
+    pl_psp_init("ux0:/data/CATSFC-libretro-VITA/");
 
     // get the game ready
     if (InitMenu())
