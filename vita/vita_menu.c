@@ -73,18 +73,18 @@ PL_MENU_OPTIONS_BEGIN(ButtonMapOptions)
     /* Special */
     PL_MENU_OPTION("Special: Open Menu", SPC_MENU)
     /* Buttons */
-    PL_MENU_OPTION("Up",       RETRO_DEVICE_ID_JOYPAD_UP)
-    PL_MENU_OPTION("Down",     RETRO_DEVICE_ID_JOYPAD_DOWN)
-    PL_MENU_OPTION("Left",     RETRO_DEVICE_ID_JOYPAD_LEFT)
-    PL_MENU_OPTION("Right",    RETRO_DEVICE_ID_JOYPAD_RIGHT)
-    PL_MENU_OPTION("Button A", RETRO_DEVICE_ID_JOYPAD_A)
-    PL_MENU_OPTION("Button B", RETRO_DEVICE_ID_JOYPAD_B)
-    PL_MENU_OPTION("Button X", RETRO_DEVICE_ID_JOYPAD_X)
-    PL_MENU_OPTION("Button Y", RETRO_DEVICE_ID_JOYPAD_Y)
-    PL_MENU_OPTION("Button L", RETRO_DEVICE_ID_JOYPAD_L)
-    PL_MENU_OPTION("Button R", RETRO_DEVICE_ID_JOYPAD_R)
-    PL_MENU_OPTION("Start",    RETRO_DEVICE_ID_JOYPAD_START)
-    PL_MENU_OPTION("Select",   RETRO_DEVICE_ID_JOYPAD_SELECT)
+    PL_MENU_OPTION("Up",        RETRO_DEVICE_ID_JOYPAD_UP)
+    PL_MENU_OPTION("Down",      RETRO_DEVICE_ID_JOYPAD_DOWN)
+    PL_MENU_OPTION("Left",      RETRO_DEVICE_ID_JOYPAD_LEFT)
+    PL_MENU_OPTION("Right",     RETRO_DEVICE_ID_JOYPAD_RIGHT)
+    PL_MENU_OPTION("Button A",  RETRO_DEVICE_ID_JOYPAD_A)
+    PL_MENU_OPTION("Button B",  RETRO_DEVICE_ID_JOYPAD_B)
+    PL_MENU_OPTION("Button X",  RETRO_DEVICE_ID_JOYPAD_X)
+    PL_MENU_OPTION("Button Y",  RETRO_DEVICE_ID_JOYPAD_Y)
+    PL_MENU_OPTION("Button L",  RETRO_DEVICE_ID_JOYPAD_L)
+    PL_MENU_OPTION("Button R",  RETRO_DEVICE_ID_JOYPAD_R)
+    PL_MENU_OPTION("Start",     RETRO_DEVICE_ID_JOYPAD_START)
+    PL_MENU_OPTION("Select",    RETRO_DEVICE_ID_JOYPAD_SELECT)
 PL_MENU_OPTIONS_END
 PL_MENU_OPTIONS_BEGIN(ControllerDeviceOptions)
     PL_MENU_OPTION("SNES Joypad", SNES_JOYPAD)
@@ -264,7 +264,7 @@ struct ButtonConfig DefaultConfig =
         RETRO_DEVICE_ID_JOYPAD_SELECT, /* Select */
         RETRO_DEVICE_ID_JOYPAD_START, /* Start */
         SPC_MENU, /* L+R Triggers */
-        SPC_UNMAPPED, /* Start + Select */
+		SPC_UNMAPPED, /* Start + Select */
     }
 };
 
@@ -395,12 +395,12 @@ void LoadOptions()
     pl_ini_load(&init, path);
 
     /* Load values */
-    Options.DisplayMode   = pl_ini_get_int(&init, "Video", "Display Mode", DISPLAY_MODE_UNSCALED);
-    Options.TextureFilter = pl_ini_get_int(&init, "Video", "Screen smoothing", 0);
-    Options.UpdateFreq    = pl_ini_get_int(&init, "Video", "Update Frequency", 0);
-    Options.Frameskip     = pl_ini_get_int(&init, "Video", "Frameskip", 1);
-    Options.VSync         = pl_ini_get_int(&init, "Video", "VSync", 1);
-    Options.ClockFreq     = pl_ini_get_int(&init, "Video", "PSP Clock Frequency", 333);
+    Options.DisplayMode   = pl_ini_get_int(&init, "Video", "Display Mode", DISPLAY_MODE_FIT_HEIGHT);
+    Options.TextureFilter = pl_ini_get_int(&init, "Video", "Screen smoothing", 1);
+    Options.UpdateFreq    = pl_ini_get_int(&init, "Video", "Update Frequency", 60);
+    Options.Frameskip     = pl_ini_get_int(&init, "Video", "Frameskip", 0);
+    Options.VSync         = pl_ini_get_int(&init, "Video", "VSync", 0);
+    Options.ClockFreq     = pl_ini_get_int(&init, "Video", "PSP Clock Frequency", 444);
     Options.ShowFps       = pl_ini_get_int(&init, "Video", "Show FPS", 0);
 
     Options.ControlMode   = pl_ini_get_int(&init, "Menu", "Control Mode", 0);
